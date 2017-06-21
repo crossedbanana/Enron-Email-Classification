@@ -473,7 +473,7 @@ def adaboost_submission(data):
 
 submit_ada = adaboost_submission(data)
 ```
-### Combine Results
+### Combined Result
 
 ```python
 from scipy import stats
