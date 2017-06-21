@@ -3,7 +3,7 @@ This project involves a preliminary text process, feature extraction and trainin
 
 ## Data
  
-The Raw data we used is from [Enron Corpus](https://enrondata.readthedocs.io/en/latest/data/edo-enron-email-pst-dataset/), which consists of 5172 training emails and 5857 testing emails in .txt format. Out of the 5172 training emails there are 1500 spam emails and 3672 ham emails. We are going to train the classification model with the training emails and to classify the testing set. Download the folder ```  ``` for the data.
+The Raw data we used is from [Enron Corpus](https://enrondata.readthedocs.io/en/latest/data/edo-enron-email-pst-dataset/), which consists of 5172 training emails and 5857 testing emails in .txt format. Out of the 5172 training emails there are 1500 spam emails and 3672 ham emails. We are going to train the classification model with the training emails and to classify the testing set. Download ```data.zip``` in this repo for the email files.
 
 ## Python Script
 
@@ -474,6 +474,7 @@ def adaboost_submission(data):
 submit_ada = adaboost_submission(data)
 ```
 ### Combine Results
+
 ```python
 from scipy import stats
 submit = [submit_log[i]+submit_rf[i]+submit_xgm[i]+submit_svm[i]+submit_ada[i] for i in xrange(len(submit_svm))]
@@ -493,3 +494,6 @@ df.columns = ['Category', 'Id']
 #df = df['id'] + df['category']
 df.to_csv("submit_new.csv",header=True,columns=['id','category'],index = False)
 ```
+
+## Result
+This model yielded a Kaggle public testing set score of 0.96516, which was ranked #5 on the public leaderboard.
